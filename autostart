@@ -15,7 +15,7 @@
 # If you want to use XFCE config tools...
 #
 #xfce-mcs-manager &
-xcompmgr -C &
+xcompmgr -C -n &
 volumeicon &
 tint2 &
 conky &
