@@ -65,11 +65,6 @@ PS1="[%(!.${PR_RED}%n.$PR_LIGHT_YELLOW%n)%(!.${PR_LIGHT_YELLOW}@.$PR_RED@)$PR_NO
 RPS1="$PR_LIGHT_YELLOW(%D{%m-%d %H:%M})$PR_NO_COLOR"
 unsetopt ALL_EXPORT
 
-### Set alias
-#############
-alias ll='ls -al'
-alias ls='ls --color=auto '
-
 ### Bind keys
 #############
 autoload -U compinit
@@ -164,5 +159,27 @@ zstyle '*' single-ignored show
 ### Source plugins
 ##################
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+### Set alias
+#############
+alias ll='ls -al'
+alias ls='ls --color=auto '
+alias ytdl='f() {youtube-dl $1} ;f'
+alias ytpc='f() {youtube-dl -x -f bestaudio --audio-format opus --audio-quality 64k $1} ;f'
+alias ytmp3='f() {youtube-dl -x -f bestaudio --audio-format mp3 --audio-quality 128k $1} ;f'
+alias ytsub='f() {youtube-dl --write-sub --sub-lang en --convert-subs srt $1} ;f'
+alias ythd='f() {youtube-dl -f bestvideo+bestaudio $1} ;f'
+alias ytpipe='f() {youtube-dl $1 -o - | vlc -} ;f'
+alias lstream='f() {streamlink -O $1 $2 | vlc -} ;f'
+alias rstream='f() {streamlink -o 1.ts $1 $2} ;f'
+alias dstream='f() {wget $1 -O - | vlc -} ;f'
+alias 0file='f() {curl -F"file=@$1" https://0x0.st} ;f'
+alias 0url='f() {curl -F"url=$1" https://0x0.st} ;f'
+alias 0shrt='f() {curl -F"shorten=$1" https://0x0.st} ;f'
+alias md5='f() {rhash --md5 $1} ;f'
+alias sha1='f() {rhash --sha1 $1} ;f'
+alias sha256='f() {rhash --sha256 $1} ;f'
+alias sha512='f() {rhash --sha512 $1} ;f'
+alias crc='f() {rhash --crc32 $1} ;f'
 
 if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
