@@ -17,6 +17,7 @@
 #xfce-mcs-manager &
 xcompmgr -C -n &
 volumeicon &
+parcellite &
 tint2 &
 conky &
 sh ~/.fehbg &
