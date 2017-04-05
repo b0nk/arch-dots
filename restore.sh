@@ -26,3 +26,7 @@ cp -f -u ./schema.pl ~/.config/obmenu-generator/schema.pl
 # wallpaper
 cp -f -u ./wall.png ~/wall.png
 cp -f -u ./fehbg ~/.fehbg
+
+# pacaur
+mkdir -p ~/.config/pacaur/config
+cp -f -u ./config ~/.config/pacaur/config
