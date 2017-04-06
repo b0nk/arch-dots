@@ -96,6 +96,6 @@ our $CONFIG = {
                            },
   "missing_icon"        => "gtk-missing-image",
   "name_keys"           => ["Name"],
-  "terminal"            => "xfce4-terminal",
+  "terminal"            => "lxterminal",
   "VERSION"             => 0.7,
 }
