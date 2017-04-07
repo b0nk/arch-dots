@@ -1,4 +1,4 @@
-# backup some shi- stuff
+# restore some shi- stuff
 
 # conky
 mkdir -p ~/.config/conky/
