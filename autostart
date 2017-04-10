@@ -5,9 +5,8 @@
 #
 
 xcompmgr -C -n &
-
-volumeicon &
 VBoxClient-all &
+volumeicon &
 nm-applet &
 parcellite &
 tint2 &
