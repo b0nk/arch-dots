@@ -30,17 +30,17 @@ my $editor = $CONFIG->{editor};
 our $SCHEMA = [
 
     #          COMMAND                 LABEL              ICON
-    {item => ['thunar .',       'File Manager', 'system-file-manager']},
-    {item => ['lxterminal',     'Terminal',     'lxterminal']},
-    {item => ['firefox',	'Web Browser',  'firefox']},
-    {item => ['gmrun',          'Run command',  'system-run']},
+    {item => ['thunar .',	'File Manager', 'system-file-manager']},
+    {item => ['lxterminal',	'Terminal',	'lxterminal']},
+    {item => ['firefox', 	'Web Browser',	'firefox']},
+    {item => ['gmrun',		'Run command',	'system-run']},
 
     {sep => 'Categories'},
 
     #          NAME            LABEL                ICON
     {cat => ['utility',     'Accessories', 'applications-utilities']},
     {cat => ['development', 'Development', 'applications-development']},
-    {cat => ['education',   'Education',   'applications-science']},
+    {cat => ['education',   'Education', 'applications-science']},
     {cat => ['game',        'Games',       'applications-games']},
     {cat => ['graphics',    'Graphics',    'applications-graphics']},
     {cat => ['audiovideo',  'Multimedia',  'applications-multimedia']},

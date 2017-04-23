@@ -166,6 +166,7 @@ zstyle '*' single-ignored show
 alias ll='ls -al'
 alias ls='ls --color=auto '
 alias cd..='cd ..'
+alias mp4box='MP4Box'
 alias ytdl='function ytdl() {youtube-dl $@} ;ytdl'
 alias ytpc='function ytpc() {youtube-dl -x -f bestaudio --audio-format opus --audio-quality 64k $@} ;ytpc'
 alias ytmp3='function ytmp3() {youtube-dl -x -f bestaudio --audio-format mp3 --audio-quality 128k $@} ;ytmp3'
