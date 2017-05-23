@@ -161,6 +161,10 @@ zstyle ':completion:*:ssh:*' group-order \
    hosts-domain hosts-host users hosts-ipaddr
 zstyle '*' single-ignored show
 
+### Set myVars
+#############
+PLAYER=mpv
+
 ### Set alias
 #############
 alias ll='ls -al'
@@ -172,10 +176,10 @@ alias ytpc='function ytpc() {youtube-dl -x -f bestaudio --audio-format opus --au
 alias ytmp3='function ytmp3() {youtube-dl -x -f bestaudio --audio-format mp3 --audio-quality 128k $@} ;ytmp3'
 alias ytsub='function ytsub() {youtube-dl --write-sub --sub-lang en --convert-subs srt $@} ;ytsub'
 alias ythd='function ythd() {youtube-dl -f bestvideo+bestaudio $@} ;ythd'
-alias ytpipe='function ytpipe() {youtube-dl $1 -o - | vlc -} ;ytpipe'
-alias lstream='function lstream() {streamlink -O $1 $2 | vlc -} ;lstream'
+alias ytpipe='function ytpipe() {youtube-dl $1 -o - | $PLAYER -} ;ytpipe'
+alias lstream='function lstream() {streamlink -O $1 $2 | $PLAYER -} ;lstream'
 alias rstream='function rstream() {streamlink -o 1.ts $1 $2} ;rstream'
-alias dstream='function dstream() {wget $1 -O - | vlc -} ;dstream'
+alias dstream='function dstream() {wget $1 -O - | $PLAYER -} ;dstream'
 alias 0file='function oFile() {curl -F"file=@$1" https://0x0.st} ;oFile'
 alias 0url='function oURL() {curl -F"url=$1" https://0x0.st} ;oURL'
 alias 0shrt='function oSHRT() {curl -F"shorten=$1" https://0x0.st} ;oSHRT'
