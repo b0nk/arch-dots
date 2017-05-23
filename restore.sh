@@ -30,3 +30,7 @@ cp -f -u ./.fehbg ~/.fehbg
 # pacaur
 mkdir -p ~/.config/pacaur/config
 cp -f -u ./config ~/.config/pacaur/config
+
+# mpv
+mkdir -p ~/.config/mpv/
+cp -f -u ./mpv.conf ~/.config/mpv/mpv.conf
