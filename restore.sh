@@ -1,5 +1,8 @@
 # restore some shi- stuff
 
+# rename user in configs
+sed -i 's/dweller/$USER/g' *
+
 # conky
 mkdir -p ~/.config/conky/
 cp -f ./conky.conf ~/.config/conky/conky.conf
