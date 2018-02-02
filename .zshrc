@@ -161,34 +161,45 @@ zstyle ':completion:*:ssh:*' group-order \
    hosts-domain hosts-host users hosts-ipaddr
 zstyle '*' single-ignored show
 
-### Set myVars
+### Set my vars
 #############
 PLAYER=mpv
 
-### Set alias
+### Set my aliaseseses
 #############
-alias ll='ls -al'
-alias ls='ls --color=auto '
+alias ll='ls -alh'
+alias ls='ls --color=auto -NGh'
 alias cd..='cd ..'
 alias mp4box='MP4Box'
-alias ytdl='function ytdl() {youtube-dl $@} ;ytdl'
-alias ytpc='function ytpc() {youtube-dl -x -f bestaudio --audio-format opus --audio-quality 64k $@} ;ytpc'
-alias ytmp3='function ytmp3() {youtube-dl -x -f bestaudio --audio-format mp3 --audio-quality 128k $@} ;ytmp3'
-alias ytsub='function ytsub() {youtube-dl --write-sub --sub-lang en --convert-subs srt $@} ;ytsub'
-alias ythd='function ythd() {youtube-dl -f bestvideo+bestaudio $@} ;ythd'
-alias ytpipe='function ytpipe() {youtube-dl $1 -o - | $PLAYER -} ;ytpipe'
-alias lstream='function lstream() {streamlink -O $1 $2 | $PLAYER -} ;lstream'
-alias rstream='function rstream() {streamlink -o 1.ts $1 $2} ;rstream'
-alias dstream='function dstream() {wget $1 -O - | $PLAYER -} ;dstream'
-alias war='function war() {streamlink -O $1 $2 | tee $(date +%s).ts | $PLAYER -} ;war'
-alias dwar='function dwar() {wget $1 -O - | tee $(date+%s).ts | $PLAYER -} ;dwar'
-alias 0file='function oFile() {curl -F"file=@$1" https://0x0.st} ;oFile'
-alias 0url='function oURL() {curl -F"url=$1" https://0x0.st} ;oURL'
-alias 0shrt='function oSHRT() {curl -F"shorten=$1" https://0x0.st} ;oSHRT'
-alias md5='function hMD5() {rhash --md5 $1} ;hMD5'
-alias sha1='function hSHA1() {rhash --sha1 $1} ;hSHA1'
-alias sha256='function hSHA256() {rhash --sha256 $1} ;hSHA256'
-alias sha512='function hSHA512() {rhash --sha512 $1} ;hSHA512'
-alias crc='function hCRC() {rhash --crc32 $1} ;hCRC'
+alias ytdl='youtube-dl'
+alias ytpc='youtube-dl -x -f bestaudio --audio-format opus --audio-quality 64k'
+alias ytmp3='youtube-dl -x -f bestaudio --audio-format mp3 --audio-quality 128k'
+alias ytsub='youtube-dl --write-sub --sub-lang en --convert-subs srt'
+alias ythd='youtube-dl -f bestvideo+bestaudio'
+alias pacbloat='sudo pacman -Rsn $(pacman -Qqdt)'
+alias ffprobe='ffprobe -hide_banner'
+alias ffplay='ffplay -hide_banner'
+alias weather='curl http://wttr.in/~Lisbon'
+alias hm='cd ~'
+alias mv='mv -i'
+alias ta='tmux attach'
+alias refreshenv='source ~/.zshrc'
+
+### Set my functions
+#############
+function ytpipe() { youtube-dl "$1" -o - | $PLAYER - }
+function lstream() { streamlink -O "$1" "$2" | $PLAYER - }
+function rstream() { streamlink -o $(date+%s).ts "$1" "$2" }
+function dstream() { wget "$1" -O - | $PLAYER - }
+function war() { streamlink -O "$1" "$2" | tee $(date +%s).ts | $PLAYER -}
+function dwar() { wget "$1" -O - | tee $(date+%s).ts | $PLAYER - }
+function oFile() { curl -F"file=@$1" https://0x0.st }
+function oURL() { curl -F"url=$1" https://0x0.st }
+function oSHRT() { curl -F"shorten=$1" https://0x0.st }
+function hMD5() { rhash --md5 "$1" }
+function hSHA1() { rhash --sha1 "$1" }
+function hSHA256() { rhash --sha256 "$1" }
+function hSHA512() { rhash --sha512 "$1" }
+function hCRC() { rhash --crc32 "$1" }
 
 if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
