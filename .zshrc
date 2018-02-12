@@ -1,7 +1,3 @@
-#######################################################
-####### Arch Anywhere ZSH configuration file    #######
-#######################################################
-
 ### Set/unset ZSH options
 #########################
 # setopt NOHUP
@@ -25,7 +21,7 @@ setopt   notify globdots correct pushdtohome cdablevars autolist
 setopt   correctall autocd recexact longlistjobs
 setopt   autoresume histignoredups pushdsilent 
 setopt   autopushd pushdminus extendedglob rcquotes mailwarning
-unsetopt bgnice autoparamslash nomatch
+unsetopt bgnice autoparamslash
 
 ### Autoload zsh modules when they are referenced
 #################################################
@@ -33,7 +29,7 @@ autoload -U history-search-end
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
-zmodload -ap zsh/mapfile mapfile
+#zmodload -ap zsh/mapfile mapfile
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
@@ -66,7 +62,7 @@ source /usr/share/git/completion/git-prompt.sh
 ### Set prompt
 ##############
 PR_NO_COLOR="%{$terminfo[sgr0]%}"
-PS1="[%(!.${PR_RED}%n.$PR_LIGHT_YELLOW%n)%(!.${PR_LIGHT_YELLOW}@.$PR_RED@)$PR_NO_COLOR%(!.${PR_LIGHT_RED}%U%m%u.${PR_LIGHT_GREEN}%U%m%u)$PR_NO_COLOR:%(!.${PR_RED}%2c.${PR_BLUE}%2c)$PR_NO_COLOR$(__git_ps1 "(%s)")]%(?..[${PR_LIGHT_RED}%?$PR_NO_COLOR])%(!.${PR_LIGHT_RED}#.${PR_LIGHT_GREEN}$) "
+PS1="[%(!.${PR_RED}%n.$PR_LIGHT_YELLOW%n)%(!.${PR_LIGHT_YELLOW}@.$PR_RED@)$PR_NO_COLOR%(!.${PR_LIGHT_RED}%U%m%u.${PR_LIGHT_GREEN}%U%m%u)$PR_NO_COLOR:%(!.${PR_RED}%2c.${PR_BLUE}%2c)$PR_NO_COLOR]%(?..[${PR_LIGHT_RED}%?$PR_NO_COLOR])%(!.${PR_LIGHT_RED}#.${PR_LIGHT_GREEN}$) "
 RPS1="$PR_LIGHT_YELLOW(%D{%m-%d %H:%M})$PR_NO_COLOR"
 unsetopt ALL_EXPORT
 
@@ -171,12 +167,12 @@ alias ll='ls -alh'
 alias ls='ls --color=auto -NGh'
 alias cd..='cd ..'
 alias mp4box='MP4Box'
-alias ytdl='youtube-dl'
-alias ytpc='youtube-dl -x -f bestaudio --audio-format opus --audio-quality 64k'
-alias ytmp3='youtube-dl -x -f bestaudio --audio-format mp3 --audio-quality 128k'
-alias ytsub='youtube-dl --write-sub --sub-lang en --convert-subs srt'
-alias ythd='youtube-dl -f bestvideo+bestaudio'
-alias pacbloat='sudo pacman -Rsn $(pacman -Qqdt)'
+alias ytdl='youtube-dl --prefer-ffmpeg'
+alias ytpc='youtube-dl -x -f bestaudio --audio-format opus --audio-quality 64k --prefer-ffmpeg'
+alias ytmp3='youtube-dl -x -f bestaudio --audio-format mp3 --audio-quality 128k --prefer-ffmpeg'
+alias ytsub='youtube-dl --write-sub --sub-lang en --convert-subs srt --prefer-ffmpeg'
+alias ythd='youtube-dl -f bestvideo+bestaudio --prefer-ffmpeg'
+alias pacbloat='pacaur -Rsn $(pacaur -Qqdt)'
 alias ffprobe='ffprobe -hide_banner'
 alias ffplay='ffplay -hide_banner'
 alias weather='curl http://wttr.in/~Lisbon'
@@ -184,6 +180,17 @@ alias hm='cd ~'
 alias mv='mv -i'
 alias ta='tmux attach'
 alias refreshenv='source ~/.zshrc'
+alias myip='curl https://ipinfo.io/ip'
+alias terry='mpv http://templeos.org/hls/templeos.m3u8'
+alias grep='grep --color=always'
+alias trunc='truncate'
+alias clrhist='truncate -s 0 ~/.zhistory'
+alias rcp='rsync -a --progress'
+alias md5='rhash --md5'
+alias sha1='rhash --sha1'
+alias sha256='rhash --sha256'
+alias sha512='rhash --sha512'
+alias crc='rhash --crc32'
 
 ### Set my functions
 #############
@@ -196,10 +203,7 @@ function dwar() { wget "$1" -O - | tee $(date+%s).ts | $PLAYER - }
 function oFile() { curl -F"file=@$1" https://0x0.st }
 function oURL() { curl -F"url=$1" https://0x0.st }
 function oSHRT() { curl -F"shorten=$1" https://0x0.st }
-function hMD5() { rhash --md5 "$1" }
-function hSHA1() { rhash --sha1 "$1" }
-function hSHA256() { rhash --sha256 "$1" }
-function hSHA512() { rhash --sha512 "$1" }
-function hCRC() { rhash --crc32 "$1" }
+function c() { curl "http://cheat.sh/$1" }
+function mkcd() { mkdir "$1" && cd "$1" }
 
 if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
