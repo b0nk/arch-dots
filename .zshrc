@@ -98,7 +98,7 @@ zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
 # allow one error for every three characters typed in approximate completer
 zstyle -e ':completion:*:approximate:*' max-errors \
     'reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )'
-    
+
 # insert all expansions for expand completer
 zstyle ':completion:*:expand:*' tag-order all-expansions
 
@@ -163,8 +163,11 @@ PLAYER=mpv
 
 ### Set my aliaseseses
 #############
-alias ll='ls -alh'
+alias grep='grep --color=always'
 alias ls='ls --color=auto -NGh'
+alias rm='rm -I'
+alias mv='mv -i'
+alias ll='ls -alh'
 alias cd..='cd ..'
 alias mp4box='MP4Box'
 alias ytdl='youtube-dl --prefer-ffmpeg'
@@ -172,17 +175,15 @@ alias ytpc='youtube-dl -x -f bestaudio --audio-format opus --audio-quality 64k -
 alias ytmp3='youtube-dl -x -f bestaudio --audio-format mp3 --audio-quality 128k --prefer-ffmpeg'
 alias ytsub='youtube-dl --write-sub --sub-lang en --convert-subs srt --prefer-ffmpeg'
 alias ythd='youtube-dl -f bestvideo+bestaudio --prefer-ffmpeg'
-alias pacbloat='pacaur -Rsn $(pacaur -Qqdt)'
+alias pacbloat='trizen -Rsn $(trizen -Qqdt)'
 alias ffprobe='ffprobe -hide_banner'
 alias ffplay='ffplay -hide_banner'
 alias weather='curl http://wttr.in/~Lisbon'
 alias hm='cd ~'
-alias mv='mv -i'
 alias ta='tmux attach'
 alias refreshenv='source ~/.zshrc'
 alias myip='curl https://ipinfo.io/ip'
 alias terry='mpv http://templeos.org/hls/templeos.m3u8'
-alias grep='grep --color=always'
 alias trunc='truncate'
 alias clrhist='truncate -s 0 ~/.zhistory'
 alias rcp='rsync -a --progress'
@@ -191,6 +192,7 @@ alias sha1='rhash --sha1'
 alias sha256='rhash --sha256'
 alias sha512='rhash --sha512'
 alias crc='rhash --crc32'
+alias newdns='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=4&callback=jQuery2140910100356443596_1521088209967&_=1521088209968" | grep -Po "\d*\.\d*\.\d*\.\d*"'
 
 ### Set my functions
 #############

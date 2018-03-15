@@ -12,7 +12,7 @@ cp -f ./.zshrc ~/.zshrc
 cp -f ./.zprofile ~/.zprofile
 
 # x
-cp -f ./.xinitrc ~/.xinitrc 
+cp -f ./.xinitrc ~/.xinitrc
 
 # tint2
 mkdir -p ~/.config/tint2
