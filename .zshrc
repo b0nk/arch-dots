@@ -192,7 +192,8 @@ alias sha1='rhash --sha1'
 alias sha256='rhash --sha256'
 alias sha512='rhash --sha512'
 alias crc='rhash --crc32'
-alias newdns='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=4&callback=jQuery2140910100356443596_1521088209967&_=1521088209968" | grep -Po "\d*\.\d*\.\d*\.\d*"'
+alias newdns='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=4" | grep -Po "\b(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9])\.){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))\b"'
+alias newdns6='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=6" | grep -Po "(?:[a-f0-9]{1,4}:){6}(?::[a-f0-9]{1,4})|(?:[a-f0-9]{1,4}:){5}(?::[a-f0-9]{1,4}){1,2}|(?:[a-f0-9]{1,4}:){4}(?::[a-f0-9]{1,4}){1,3}|(?:[a-f0-9]{1,4}:){3}(?::[a-f0-9]{1,4}){1,4}|(?:[a-f0-9]{1,4}:){2}(?::[a-f0-9]{1,4}){1,5}|(?:[a-f0-9]{1,4}:)(?::[a-f0-9]{1,4}){1,6}|(?:[a-f0-9]{1,4}:){1,6}:|:(?::[a-f0-9]{1,4}){1,6}|[a-f0-9]{0,4}::|(?:[a-f0-9]{1,4}:){7}[a-f0-9]{1,4}"'
 
 ### Set my functions
 #############
