@@ -183,7 +183,7 @@ alias hm='cd ~'
 alias ta='tmux attach'
 alias refreshenv='source ~/.zshrc'
 alias myip='curl https://ipinfo.io/ip'
-alias terry='mpv http://templeos.org/hls/templeos.m3u8'
+alias terry='$PLAYER http://templeos.org/hls/templeos.m3u8'
 alias trunc='truncate'
 alias clrhist='truncate -s 0 ~/.zhistory'
 alias rcp='rsync -a --progress'
@@ -194,15 +194,16 @@ alias sha512='rhash --sha512'
 alias crc='rhash --crc32'
 alias newdns='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=4" | grep -Po "\b(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9])\.){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))\b"'
 alias newdns6='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=6" | grep -Po "(?:[a-f0-9]{1,4}:){6}(?::[a-f0-9]{1,4})|(?:[a-f0-9]{1,4}:){5}(?::[a-f0-9]{1,4}){1,2}|(?:[a-f0-9]{1,4}:){4}(?::[a-f0-9]{1,4}){1,3}|(?:[a-f0-9]{1,4}:){3}(?::[a-f0-9]{1,4}){1,4}|(?:[a-f0-9]{1,4}:){2}(?::[a-f0-9]{1,4}){1,5}|(?:[a-f0-9]{1,4}:)(?::[a-f0-9]{1,4}){1,6}|(?:[a-f0-9]{1,4}:){1,6}:|:(?::[a-f0-9]{1,4}){1,6}|[a-f0-9]{0,4}::|(?:[a-f0-9]{1,4}:){7}[a-f0-9]{1,4}"'
+alias radioptnet='$PLAYER https://radio.ptnet.org/shout/listen.pls'
 
 ### Set my functions
 #############
 function ytpipe() { youtube-dl "$1" -o - | $PLAYER - }
 function lstream() { streamlink -O "$1" "$2" | $PLAYER - }
-function rstream() { streamlink -o $(date+%s).ts "$1" "$2" }
+function rstream() { streamlink -o $(date +%s).ts "$1" "$2" }
 function dstream() { wget "$1" -O - | $PLAYER - }
 function war() { streamlink -O "$1" "$2" | tee $(date +%s).ts | $PLAYER -}
-function dwar() { wget "$1" -O - | tee $(date+%s).ts | $PLAYER - }
+function dwar() { wget "$1" -O - | tee $(date +%s).ts | $PLAYER - }
 function oFile() { curl -F"file=@$1" https://0x0.st }
 function oURL() { curl -F"url=$1" https://0x0.st }
 function oSHRT() { curl -F"shorten=$1" https://0x0.st }
