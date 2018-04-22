@@ -30,10 +30,6 @@ cp -f ./schema.pl ~/.config/obmenu-generator/schema.pl
 cp -f ./wall.png ~/wall.png
 cp -f ./.fehbg ~/.fehbg
 
-# pacaur
-mkdir -p ~/.config/pacaur/
-cp -f ./config ~/.config/pacaur/config
-
 # mpv
 mkdir -p ~/.config/mpv/
 cp -f ./mpv.conf ~/.config/mpv/mpv.conf

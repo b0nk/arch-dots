@@ -23,8 +23,5 @@ cp -f -u ~/.config/obmenu-generator/schema.pl ./
 cp -f -u ~/wall.png ./
 cp -f -u ~/.fehbg ./
 
-# pacaur
-cp -f -u ~/.config/pacaur/config ./
-
 # mpv
 cp -f -u ~/.config/mpv/mpv.conf ./
