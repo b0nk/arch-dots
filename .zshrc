@@ -19,7 +19,7 @@ setopt ALL_EXPORT
 ############################
 setopt   notify globdots correct pushdtohome cdablevars autolist
 setopt   correctall autocd recexact longlistjobs
-setopt   autoresume histignoredups pushdsilent 
+setopt   autoresume histignoredups pushdsilent
 setopt   autopushd pushdminus extendedglob rcquotes mailwarning
 unsetopt bgnice autoparamslash
 
@@ -210,4 +210,4 @@ function oSHRT() { curl -F"shorten=$1" https://0x0.st }
 function c() { curl "http://cheat.sh/$1" }
 function mkcd() { mkdir "$1" && cd "$1" }
 
-if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
+if [ -f /usr/bin/neofetch ]; then neofetch; fi
