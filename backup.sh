@@ -25,3 +25,6 @@ cp -f -u ~/.fehbg ./
 
 # mpv
 cp -f -u ~/.config/mpv/mpv.conf ./
+
+# xfetch
+cp -f -u ~/.config/neofetch/config.conf ./

@@ -33,3 +33,6 @@ cp -f ./.fehbg ~/.fehbg
 # mpv
 mkdir -p ~/.config/mpv/
 cp -f ./mpv.conf ~/.config/mpv/mpv.conf
+
+# xfetch
+cp -f ./config.conf ~/.config/neofetch/config.conf
