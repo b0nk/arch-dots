@@ -20,7 +20,7 @@
 
     | substitutions       : Substitute, by using a regex, in the values from the desktop files.
                             Example: [
-                                {key => 'Exec', re => qr/xterm/, value => 'sakura', global => 1},
+                                {key => 'Exec', re => qr/xterm/, value => 'tilix', global => 1},
                             ],
 
 || ICON SETTINGS
@@ -50,22 +50,17 @@ our $CONFIG = {
   "force_icon_size"     => 0,
   "generic_fallback"    => 0,
   "gtk_rc_filename"     => "$ENV{HOME}/.gtkrc-2.0",
-  "icon_size"           => 32,
+  "icon_size"           => 48,
   "Linux::DesktopFiles" => {
                              desktop_files_paths     => [
                                                           "/usr/share/applications",
                                                           "/usr/local/share/applications",
                                                           "/usr/share/applications/kde4",
+                                                          "$ENV{HOME}/.local/share/applications",
                                                         ],
-                             gtk_rc_filename         => "$ENV{HOME}/.gtkrc-2.0",
-                             icon_dirs_first         => undef,
-                             icon_dirs_last          => undef,
-                             icon_dirs_second        => undef,
                              keep_unknown_categories => 1,
                              skip_entry              => undef,
                              skip_filename_re        => undef,
-                             skip_svg_icons          => 0,
-                             strict_icon_dirs        => undef,
                              substitutions           => undef,
                              terminalization_format  => "%s -e '%s'",
                              terminalize             => 1,
@@ -73,6 +68,7 @@ our $CONFIG = {
                            },
   "locale_support"      => 1,
   "missing_icon"        => "gtk-missing-image",
-  "terminal"            => "lxterminal",
-  "VERSION"             => 0.84,
+  "terminal"            => "xterm",
+  "use_gtk3"            => 0,
+  "VERSION"             => 0.86,
 }
