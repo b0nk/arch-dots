@@ -164,10 +164,11 @@ PLAYER=mpv
 ### Set my aliaseseses
 #############
 alias grep='grep --color=always'
-alias ls='ls --color=auto -NGh'
+alias ls='ls --color=auto -NGh --group-directories-first'
 alias rm='rm -I'
 alias mv='mv -i'
-alias ll='ls -alh'
+alias diff='diff --color=auto'
+alias ll='ls -alh --group-directories-first'
 alias cd..='cd ..'
 alias mp4box='MP4Box'
 alias ytdl='youtube-dl --prefer-ffmpeg'
@@ -175,18 +176,19 @@ alias ytpc='youtube-dl -x -f bestaudio --audio-format opus --audio-quality 64k -
 alias ytmp3='youtube-dl -x -f bestaudio --audio-format mp3 --audio-quality 128k --prefer-ffmpeg'
 alias ytsub='youtube-dl --write-sub --sub-lang en --convert-subs srt --prefer-ffmpeg'
 alias ythd='youtube-dl -f bestvideo+bestaudio --prefer-ffmpeg'
+alias gldl='gallery-dl'
 alias pacbloat='trizen -Rsn $(trizen -Qqdt)'
 alias ffprobe='ffprobe -hide_banner'
 alias ffplay='ffplay -hide_banner'
-alias weather='curl http://wttr.in/~Lisbon'
+alias weather='curl "http://wttr.in/~Lisbon"'
 alias hm='cd ~'
 alias ta='tmux attach'
 alias refreshenv='source ~/.zshrc'
-alias myip='curl https://ipinfo.io/ip'
-alias terry='$PLAYER http://templeos.org/hls/templeos.m3u8'
+alias myip='curl "https://ipinfo.io/ip"'
+alias terry='$PLAYER "http://templeos.org/hls/templeos.m3u8"'
 alias trunc='truncate'
 alias clrhist='truncate -s 0 ~/.zhistory'
-alias rcp='rsync -a --progress'
+alias rcp='rsync -ah -P --stats'
 alias md5='rhash --md5'
 alias sha1='rhash --sha1'
 alias sha256='rhash --sha256'
@@ -194,7 +196,7 @@ alias sha512='rhash --sha512'
 alias crc='rhash --crc32'
 alias newdns='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=4" | grep -Po "\b(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9])\.){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))\b"'
 alias newdns6='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=6" | grep -Po "(?:[a-f0-9]{1,4}:){6}(?::[a-f0-9]{1,4})|(?:[a-f0-9]{1,4}:){5}(?::[a-f0-9]{1,4}){1,2}|(?:[a-f0-9]{1,4}:){4}(?::[a-f0-9]{1,4}){1,3}|(?:[a-f0-9]{1,4}:){3}(?::[a-f0-9]{1,4}){1,4}|(?:[a-f0-9]{1,4}:){2}(?::[a-f0-9]{1,4}){1,5}|(?:[a-f0-9]{1,4}:)(?::[a-f0-9]{1,4}){1,6}|(?:[a-f0-9]{1,4}:){1,6}:|:(?::[a-f0-9]{1,4}){1,6}|[a-f0-9]{0,4}::|(?:[a-f0-9]{1,4}:){7}[a-f0-9]{1,4}"'
-alias radioptnet='$PLAYER https://radio.ptnet.org/shout/listen.pls'
+alias radioptnet='$PLAYER "https://radio.ptnet.org/shout/listen.pls"'
 
 ### Set my functions
 #############
@@ -209,6 +211,14 @@ function oURL() { curl -F"url=$1" https://0x0.st }
 function oSHRT() { curl -F"shorten=$1" https://0x0.st }
 function c() { curl "http://cheat.sh/$1" }
 function mkcd() { mkdir "$1" && cd "$1" }
+
+# PuTTY + pscp
+function sshget() {
+  printf "\033]0;__pw:"`pwd`"\007" ;
+  for file in ${*} ; do printf "\033]0;__rv:"${file}"\007" ; done ;
+  printf "\033]0;__ti\007" ;
+}
+
 man() {
  env \
  LESS_TERMCAP_mb=$(printf "\e[1;31m") \
