@@ -4,11 +4,16 @@
 # to run user-specific things.
 #
 
-xcompmgr -C -n &
-VBoxClient-all &
+#xcompmgr -C -n &
+picom -b -C -G &
+xfce4-power-manager &
 volumeicon &
 nm-applet &
+#blueman-applet &
 parcellite &
 tint2 &
 conky &
+thunar --daemon &
+#syncthingtray --wait &
 sh ~/.fehbg &
+xautolock -time 5 -locker "slock" -detectsleep &

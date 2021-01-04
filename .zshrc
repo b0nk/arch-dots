@@ -41,6 +41,10 @@ HISTSIZE=1000
 SAVEHIST=1000
 HOSTNAME="`hostname`"
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
+EDITOR=nano
+
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+XDG_RUNTIME_DIR=/run/user/1000
 
 ### Load colors
 ###############
@@ -186,10 +190,10 @@ alias hm='cd ~'
 alias ta='tmux attach'
 alias refreshenv='source ~/.zshrc'
 alias myip='curl "https://ipinfo.io/ip"'
-alias terry='$PLAYER "http://templeos.org/hls/templeos.m3u8"'
+# alias terry='$PLAYER "http://templeos.org/hls/templeos.m3u8"' # RIP
 alias trunc='truncate'
 alias clrhist='truncate -s 0 ~/.zhistory'
-alias rcp='rsync -ah -P --stats'
+alias rcp='rsync -ah -P --append-verify --stats'
 alias md5='rhash --md5'
 alias sha1='rhash --sha1'
 alias sha256='rhash --sha256'
@@ -201,7 +205,7 @@ alias radioptnet='$PLAYER "https://radio.ptnet.org/shout/listen.pls"'
 
 ### Set my functions
 #############
-function ytpipe() { youtube-dl "$1" -o - | $PLAYER - }
+function ytpipe() { $PLAYER ytdl://"$1" }
 function lstream() { streamlink -O "$1" "$2" | $PLAYER - }
 function rstream() { streamlink -o $(date +%s).ts "$1" "$2" }
 function dstream() { wget "$1" -O - | $PLAYER - }
@@ -212,12 +216,22 @@ function oURL() { curl -F"url=$1" https://0x0.st }
 function oSHRT() { curl -F"shorten=$1" https://0x0.st }
 function c() { curl "http://cheat.sh/$1" }
 function mkcd() { mkdir "$1" && cd "$1" }
+function cuesplit() { shnsplit -f "$1" -o "flac flac -8 -e -p -V --ignore-chunk-sizes -o %f -" -t "%n-%p-%t" "$2" ; rm *pregap.flac ; cuetag.sh "$1" *.flac }
 
 # PuTTY + pscp
 function sshget() {
   printf "\033]0;__pw:"`pwd`"\007" ;
   for file in ${*} ; do printf "\033]0;__rv:"${file}"\007" ; done ;
   printf "\033]0;__ti\007" ;
+}
+
+# EAC
+function eac {
+  local wineprefix="$HOME/.eac-prefix"
+  local eacdir="${wineprefix}/drive_c/EAC"
+  pushd "${eacdir}/Microsoft.VC80.CRT"
+    WINEARCH=win32 WINEPREFIX=$wineprefix WINEDEBUG=-all wine "${eacdir}/EAC.exe"
+  popd
 }
 
 man() {

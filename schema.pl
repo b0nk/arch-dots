@@ -31,7 +31,7 @@ our $SCHEMA = [
 
     #          COMMAND                 LABEL              ICON
     {item => ['thunar .',	'File Manager', 'system-file-manager']},
-    {item => ['lxterminal',	'Terminal',	'lxterminal']},
+    {item => ['xfce4-terminal',	'Terminal',	'xfce4-terminal']},
     {item => ['firefox', 	'Web Browser',	'firefox']},
     {item => ['gmrun',		'Run command',	'system-run']},
 
