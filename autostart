@@ -16,4 +16,4 @@ conky &
 thunar --daemon &
 #syncthingtray --wait &
 sh ~/.fehbg &
-xautolock -time 5 -locker "slock" -detectsleep &
+xautolock -time 5 -locker "loginctl lock-session & slock" -detectsleep &
