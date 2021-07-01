@@ -199,6 +199,7 @@ alias sha1='rhash --sha1'
 alias sha256='rhash --sha256'
 alias sha512='rhash --sha512'
 alias crc='rhash --crc32'
+alias highlight='highlight --stdout -O xterm256'
 alias newdns='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=4" | grep -Po "\b(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9])\.){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))\b"'
 alias newdns6='curl -s "https://api.opennic.org/geoip/?jsonp&res=4&ipv=6" | grep -Po "(?:[a-f0-9]{1,4}:){6}(?::[a-f0-9]{1,4})|(?:[a-f0-9]{1,4}:){5}(?::[a-f0-9]{1,4}){1,2}|(?:[a-f0-9]{1,4}:){4}(?::[a-f0-9]{1,4}){1,3}|(?:[a-f0-9]{1,4}:){3}(?::[a-f0-9]{1,4}){1,4}|(?:[a-f0-9]{1,4}:){2}(?::[a-f0-9]{1,4}){1,5}|(?:[a-f0-9]{1,4}:)(?::[a-f0-9]{1,4}){1,6}|(?:[a-f0-9]{1,4}:){1,6}:|:(?::[a-f0-9]{1,4}){1,6}|[a-f0-9]{0,4}::|(?:[a-f0-9]{1,4}:){7}[a-f0-9]{1,4}"'
 alias radioptnet='$PLAYER "https://radio.ptnet.org/shout/listen.pls"'
@@ -216,7 +217,7 @@ function oURL() { curl -F"url=$1" https://0x0.st }
 function oSHRT() { curl -F"shorten=$1" https://0x0.st }
 function c() { curl "http://cheat.sh/$1" }
 function mkcd() { mkdir "$1" && cd "$1" }
-function cuesplit() { shnsplit -f "$1" -o "flac flac -8 -e -p -V --ignore-chunk-sizes -o %f -" -t "%n-%p-%t" "$2" ; rm *pregap.flac ; cuetag.sh "$1" *.flac }
+function cuesplit() { shnsplit -f "$1" -o "flac flac -8 -e -p -V --ignore-chunk-sizes -o %f -" -t "%n-%p-%t" "$2" && rm "$2" ; rm *pregap.flac ; cuetag.sh "$1" *.flac }
 
 # PuTTY + pscp
 function sshget() {
