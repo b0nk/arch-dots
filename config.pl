@@ -69,7 +69,7 @@ our $CONFIG = {
                            },
   "locale_support"      => 1,
   "missing_icon"        => "gtk-missing-image",
-  "terminal"            => "xterm",
+  "terminal"            => "xfce4-terminal",
   "use_gtk3"            => 0,
   "VERSION"             => 0.89,
 }
