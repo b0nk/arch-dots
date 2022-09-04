@@ -24,8 +24,8 @@
                             ],
 
 || ICON SETTINGS
-    | use_gtk3            : Use the Gtk3 library for resolving the icon paths. (default: 0)
-    | gtk_rc_filename     : Absolute path to the GTK configuration file.
+    | gtk_version         : The version of the Gtk library used for resolving the icon paths. (default: 3)
+    | gtk_rc_filename     : Absolute path to the Gtk configuration file.
     | missing_icon        : Use this icon for missing icons (default: gtk-missing-image)
     | icon_size           : Preferred size for icons. (default: 48)
     | generic_fallback    : Try to shorten icon name at '-' characters before looking at inherited themes. (default: 0)
@@ -51,6 +51,7 @@ our $CONFIG = {
   "force_icon_size"     => 0,
   "generic_fallback"    => 0,
   "gtk_rc_filename"     => "$ENV{HOME}/.gtkrc-2.0",
+  "gtk_version"         => 3,
   "icon_size"           => 48,
   "Linux::DesktopFiles" => {
                              desktop_files_paths     => [
@@ -58,6 +59,7 @@ our $CONFIG = {
                                                           "/usr/local/share/applications",
                                                           "/usr/share/applications/kde4",
                                                           "$ENV{HOME}/.local/share/applications",
+                                                          glob("$ENV{HOME}/.local/share/applications/wine/Programs/*"),
                                                         ],
                              keep_unknown_categories => 1,
                              skip_entry              => undef,
@@ -70,6 +72,5 @@ our $CONFIG = {
   "locale_support"      => 1,
   "missing_icon"        => "gtk-missing-image",
   "terminal"            => "xfce4-terminal",
-  "use_gtk3"            => 0,
-  "VERSION"             => 0.89,
+  "VERSION"             => "0.90",
 }

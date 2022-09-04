@@ -16,5 +16,6 @@ conky &
 thunar --daemon &
 #syncthingtray --wait &
 sh ~/.fehbg &
+lxpolkit &
 #-000 means topleft
 xautolock -corners -000 -time 5 -locker "loginctl lock-session & slock" -detectsleep &

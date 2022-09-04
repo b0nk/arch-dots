@@ -171,8 +171,8 @@ PLAYER=mpv
 #############
 alias grep='grep --color=always'
 alias ls='ls --color=auto -NGh --group-directories-first'
-alias rm='rm -I'
-alias mv='mv -i'
+alias rm='rm -I -v'
+alias mv='mv -i -v'
 alias diff='diff --color=auto'
 alias sudo='doas'
 alias ll='ls -alh --group-directories-first'
@@ -220,21 +220,13 @@ function oSHRT() { curl -F"shorten=$1" https://0x0.st }
 function c() { curl "http://cheat.sh/$1" }
 function mkcd() { mkdir "$1" && cd "$1" }
 function cuesplit() { shnsplit -f "$1" -o "flac flac -8 -e -p -V --ignore-chunk-sizes -o %f -" -t "%n-%p-%t" "$2" && rm "$2" ; rm *pregap.flac ; cuetag.sh "$1" *.flac }
+function ctt() { python .local/bin/ctt.py "$1" }
 
 # PuTTY + pscp
 function sshget() {
   printf "\033]0;__pw:"`pwd`"\007" ;
   for file in ${*} ; do printf "\033]0;__rv:"${file}"\007" ; done ;
   printf "\033]0;__ti\007" ;
-}
-
-# EAC
-function eac {
-  local wineprefix="$HOME/.eac-prefix"
-  local eacdir="${wineprefix}/drive_c/EAC"
-  pushd "${eacdir}/Microsoft.VC80.CRT"
-    WINEARCH=win32 WINEPREFIX=$wineprefix WINEDEBUG=-all wine "${eacdir}/EAC.exe"
-  popd
 }
 
 man() {
