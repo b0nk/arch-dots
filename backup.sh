@@ -1,4 +1,5 @@
-# backup some shi- stuff
+#!/bin/sh
+# backup the dots
 
 # conky
 cp -f -u ~/.config/conky/conky.conf  ./
@@ -27,4 +28,6 @@ cp -f -u ~/.fehbg ./
 cp -f -u ~/.config/mpv/mpv.conf ./
 
 # xfetch
-cp -f -u ~/.config/neofetch/config.conf ./
+cp -f -u ~/.config/neofetch/config.conf ./xfetch.conf
+
+echo "$USER" > user

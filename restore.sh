@@ -1,7 +1,10 @@
-# restore some shi- stuff
+#!/bin/sh
+# restore the dots
+
+OLDUSER=$(cat ./user)
 
 # rename user in configs
-sed -i 's/$USER/$USER/g' *
+sed -i "s/$OLDUSER/$USER/g" ./*glob*
 
 # conky
 mkdir -p ~/.config/conky/
@@ -21,6 +24,7 @@ cp -f ./tint2rc ~/.config/tint2/tint2rc
 # openbox
 mkdir -p ~/.config/openbox
 cp -f ./autostart ~/.config/openbox/autostart
+
 # obmenu-generator
 mkdir -p ~/.config/obmenu-generator/
 cp -f ./config.pl ~/.config/obmenu-generator/config.pl
@@ -35,4 +39,5 @@ mkdir -p ~/.config/mpv/
 cp -f ./mpv.conf ~/.config/mpv/mpv.conf
 
 # xfetch
-cp -f ./config.conf ~/.config/neofetch/config.conf
+mkdir -p ~/.config/neofetch/
+cp -f ./xfetch.conf ~/.config/neofetch/config.conf
