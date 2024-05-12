@@ -191,7 +191,7 @@ alias weather='curl "http://wttr.in/~Lisbon"'
 alias hm='cd ~'
 alias ta='tmux attach'
 alias refreshenv='source ~/.zshrc'
-alias myip='curl "https://ipinfo.io/ip"'
+alias myip='python ~/nos_myip.py'
 # alias terry='$PLAYER "http://templeos.org/hls/templeos.m3u8"' # RIP
 alias trunc='truncate'
 alias clrhist='truncate -s 0 ~/.zhistory'
@@ -240,5 +240,13 @@ man() {
  LESS_TERMCAP_us=$(printf "\e[1;32m") \
  man "$@"
 }
+
+fext () {
+  file -b --extension "$@" |
+  sed -e 's-^jpeg/jpg/jpe/jfif$-jpg-' |
+  sed -e 's-^png$-PNG-' |
+  cat
+}
+
 
 if [ -f /usr/bin/neofetch ]; then neofetch; fi

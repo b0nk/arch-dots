@@ -5,7 +5,8 @@
 #
 
 #xcompmgr -C -n &
-picom -b -C -G &
+dunst &
+picom -b &
 xfce4-power-manager &
 volumeicon &
 nm-applet &

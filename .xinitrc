@@ -1,3 +1,3 @@
-setxkbmap -layout pt &
+#setxkbmap -layout pt &
 numlockx &
 exec openbox-session

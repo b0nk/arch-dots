@@ -47,7 +47,7 @@
 =cut
 
 our $CONFIG = {
-  "editor"              => "leafpad",
+  "editor"              => "featherpad",
   "force_icon_size"     => 0,
   "generic_fallback"    => 0,
   "gtk_rc_filename"     => "$ENV{HOME}/.gtkrc-2.0",
@@ -59,7 +59,9 @@ our $CONFIG = {
                                                           "/usr/local/share/applications",
                                                           "/usr/share/applications/kde4",
                                                           "$ENV{HOME}/.local/share/applications",
-                                                          glob("$ENV{HOME}/.local/share/applications/wine/Programs/*"),
+                                                          "$ENV{HOME}/.local/share/applications/wine/Programs/BF2Hub Client",
+                                                          "$ENV{HOME}/.local/share/applications/wine/Programs/Exact Audio Copy",
+                                                          "$ENV{HOME}/.local/share/applications/wine/Programs/GOG.com",
                                                         ],
                              keep_unknown_categories => 1,
                              skip_entry              => undef,
@@ -72,5 +74,5 @@ our $CONFIG = {
   "locale_support"      => 1,
   "missing_icon"        => "gtk-missing-image",
   "terminal"            => "xfce4-terminal",
-  "VERSION"             => "0.90",
+  "VERSION"             => 0.93,
 }
