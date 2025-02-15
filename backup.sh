@@ -11,14 +11,8 @@ cp -f -u ~/.zprofile ./
 # x
 cp -f -u ~/.xinitrc ./
 
-# tint2
-cp -f -u ~/.config/tint2/tint2rc ./
-
 # openbox
 cp -f -u ~/.config/openbox/autostart ./
-# obmenu-generator
-cp -f -u ~/.config/obmenu-generator/config.pl ./
-cp -f -u ~/.config/obmenu-generator/schema.pl ./
 
 # wallpaper
 cp -f -u ~/wall.png ./

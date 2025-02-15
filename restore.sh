@@ -17,18 +17,9 @@ cp -f ./.zprofile ~/.zprofile
 # x
 cp -f ./.xinitrc ~/.xinitrc
 
-# tint2
-mkdir -p ~/.config/tint2
-cp -f ./tint2rc ~/.config/tint2/tint2rc
-
 # openbox
 mkdir -p ~/.config/openbox
 cp -f ./autostart ~/.config/openbox/autostart
-
-# obmenu-generator
-mkdir -p ~/.config/obmenu-generator/
-cp -f ./config.pl ~/.config/obmenu-generator/config.pl
-cp -f ./schema.pl ~/.config/obmenu-generator/schema.pl
 
 # wallpaper
 cp -f ./wall.png ~/wall.png

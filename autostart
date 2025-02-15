@@ -11,8 +11,9 @@ xfce4-power-manager &
 volumeicon &
 nm-applet &
 #blueman-applet &
-parcellite &
-tint2 &
+#parcellite &
+#tint2 &
+xfce4-panel &
 conky &
 thunar --daemon &
 #syncthingtray --wait &
